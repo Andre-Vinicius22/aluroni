@@ -1,4 +1,4 @@
-import menu from "./itens.json";
+import menu from "data/menu.json";
 import Item from "./Item";
 import styles from "./Itens.module.scss";
 import { useEffect, useState } from "react";
@@ -14,19 +14,19 @@ export default function Itens(props: Props) {
 	const { search, filter, ordinator } = props;
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	function hasSearch(title: string) {
+	const hasSearch = (title: string) => {
 		const regex = new RegExp(search, "i");
 		return regex.test(title);
-	}
+	};
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	function hasFilter(id: number) {
+	const hasFilter = (id: number) => {
 		if (filter !== null) return filter === id;
 		return true;
-	}
+	};
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	function ordain(newList: typeof menu) {
+	const ordain = (newList: typeof menu) => {
 		switch (ordinator) {
 			case "portion":
 				return newList.sort((a, b) => (a.size > b.size ? 1 : -1));
@@ -37,7 +37,7 @@ export default function Itens(props: Props) {
 			default:
 				return newList;
 		}
-	}
+	};
 
 	useEffect(() => {
 		const newList = menu.filter(
