@@ -1,4 +1,5 @@
 import styles from "./Menu.module.scss";
+import stylesTheme from "styles/Theme.module.scss";
 import Search from "./Search";
 import { useState } from "react";
 import Filters from "./Filters";
@@ -12,7 +13,7 @@ export default function Menu() {
 
 	return (
 		<section className={styles.menu}>
-			<h3 className={styles.menu__title}>Menu</h3>
+			<h3 className={stylesTheme.title}>Menu</h3>
 			<Search search={search} setSearch={setSearch} />
 			<div className={styles.menu__filters}>
 				<Filters filter={filter} setFilter={setFilter} />

@@ -1,14 +1,15 @@
 import menu from "data/menu.json";
 import styles from "./Home.module.scss";
+import stylesTheme from "styles/Theme.module.scss";
 
 export default function Home() {
 	let recommendedDishes = [...menu];
 	recommendedDishes = recommendedDishes
 		.sort(() => 0.5 - Math.random())
-		.splice(0, 3);
+		.splice(0, 4);
 	return (
 		<section>
-			<h3 className={styles.title}>Kitchen recomendations</h3>
+			<h3 className={stylesTheme.title}>Kitchen recomendations</h3>
 			<div className={styles.recommended}>
 				{recommendedDishes.map((item) => (
 					<div key={item.id} className={styles.recomendated}>
