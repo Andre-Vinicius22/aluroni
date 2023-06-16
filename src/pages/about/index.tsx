@@ -16,7 +16,7 @@ export default function About() {
 					<p>
 						Nós do Aluroni oferecemos a vocês, nossos queridos
 						clientes, a Massa Italiana Caseira mais saborosa e
-						sofisticada de São Paulo! Prezamos pelos ingredientes
+						sofisticada de Pernambuco! Prezamos pelos ingredientes
 						tradicionais da culinária Italiana, frescos e de
 						excelente qualidade para que sua experiência seja ainda
 						mais intensa!

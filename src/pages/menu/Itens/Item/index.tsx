@@ -1,41 +1,23 @@
-import styles from './Item.module.scss';
-import menu from 'data/menu.json';
-import classNames from 'classnames';
+import DishTags from "components/DishTags";
+import styles from "./Item.module.scss";
+import { Dish } from "types/Menu";
+import { useNavigate } from "react-router-dom";
 
-type Props = (typeof menu)[0];
-
-export default function Item(props: Props) {
-  const { photo, title, description, category, size, serving, price } = props;
-  return (
-    <div className={styles.item}>
-      <div className={styles.item__image}>
-        <img src={photo} alt={title} />
-      </div>
-      <div className={styles.item__description}>
-        <div className={styles.item__title}>
-          <h2> {title} </h2>
-          <p> {description} </p>
-        </div>
-        <div className={styles.item__tags}>
-          <div
-            className={classNames(
-              styles.item__type,
-              styles[
-                `item__type__${category.label.toLowerCase()}`
-              ]
-            )}
-          >
-            {category.label}
-          </div>
-          <div className={styles.item__portion}>{size}g</div>
-          <div className={styles.item__amtpeople}>
-						Dish for {serving} {serving === 1 ? 'person' : 'people'}
-          </div>
-          <div className={styles.item__price}>
-						R${price.toFixed(2)}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+export default function Item(props: Dish) {
+	const { id, photo, title, description } = props;
+	const navigate = useNavigate();
+	return (
+		<div className={styles.item} onClick={() => navigate(`/dish/${id}`)}>
+			<div className={styles.item__image}>
+				<img src={photo} alt={title} />
+			</div>
+			<div className={styles.item__description}>
+				<div className={styles.item__title}>
+					<h2> {title} </h2>
+					<p> {description} </p>
+				</div>
+				<DishTags {...props} />
+			</div>
+		</div>
+	);
 }
