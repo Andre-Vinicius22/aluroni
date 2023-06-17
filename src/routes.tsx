@@ -7,6 +7,7 @@ import About from "pages/About";
 import Footer from "components/Footer";
 import NotFound from "pages/NotFound";
 import Dish from "pages/Dish";
+import Admin from "pages/Admin";
 
 export default function AppRouter() {
 	return (
@@ -18,6 +19,7 @@ export default function AppRouter() {
 						<Route index element={<Home />} />
 						<Route path="menu" element={<Menu />} />
 						<Route path="about" element={<About />} />
+						<Route path="admin/:user" element={<Admin />} />
 					</Route>
 					<Route path="dish/:id" element={<Dish />} />
 					<Route path="*" element={<NotFound />} />

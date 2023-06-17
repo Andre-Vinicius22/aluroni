@@ -35,8 +35,8 @@ export default function Home() {
 					</div>
 				))}
 			</div>
-			<h3 className={stylesTheme.title}> Our Home </h3>
 			<div className={styles.ourHome}>
+				<h3 className={stylesTheme.title}> Our Home </h3>
 				<img src={ourHome} alt="Home of Aluroni" />
 				<div className={styles.ourHome__address}>
 					Rua do sol, 3000 <br /> <br /> Carmo - PE
